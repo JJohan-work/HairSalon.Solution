@@ -1,0 +1,31 @@
+@{
+  Layout = "_Layout";
+}
+
+@using HairSalon.Models;
+
+
+@* details  of stylist *@
+<div class="container">
+  <div class="row">
+    <div class="col-8">@ViewBag.stylist.Name</div>
+    <div class="col-4">@ViewBag.stylist.Notes</div>
+  </div>
+</div>
+
+@* list of clients *@
+<p>@Html.ActionLink("Add new Client", "Create", "Client")</p>
+<h2>List of Client</h2>
+@if (ViewBag.clients.Count == 0)
+{
+  <h2>No Clients currently registered</h2>
+}
+else
+{
+  <ol>
+  @foreach (Client client in ViewBag.clients)
+  {
+    <li>@client.Name</li>
+  }
+  </ol>
+}
