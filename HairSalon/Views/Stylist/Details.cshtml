@@ -14,7 +14,7 @@
 </div>
 
 @* list of clients *@
-<p>@Html.ActionLink("Add new Client", "Create", "Client")</p>
+<p>@Html.ActionLink("Add new Client", "Create", "Client", new {id = ViewBag.stylist.StylistId})</p>
 <h2>List of Client</h2>
 @if (ViewBag.clients.Count == 0)
 {

@@ -14,5 +14,8 @@
   @Html.LabelFor(model => model.Notes)
   @Html.TextAreaFor(model => model.Notes)
   <br />
-  <input type="submit" value="Add Stylist" />
+  @Html.LabelFor(model => model.StylistId)
+  @Html.DropDownList("StylistId")
+  <br />
+  <input type="submit" value="Add Client" />
 }
