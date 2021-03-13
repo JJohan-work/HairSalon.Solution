@@ -1,0 +1,20 @@
+@{
+  Layout = "_Layout";
+}
+@using HairSalon.Models;
+
+
+<h1>Hair Salon</h1>
+<p>@Html.ActionLink("Back to Home", "Index", "Home")</p>
+
+@if (@Model.Count == 0)
+{
+  <h3>No Clients currently registered</h3>
+}
+
+<ul>
+  @foreach (Client client in Model)
+  {
+    <li>@Html.ActionLink("View", "Details", new { id = client.StylistId }) | @client.Name | @ViewBag.Stylists[client.StylistId]</li>
+  }
+</ul>

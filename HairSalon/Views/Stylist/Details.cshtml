@@ -4,17 +4,20 @@
 
 @using HairSalon.Models;
 
+<h1>Details of @ViewBag.stylist.Name</h1>
+
+<p>@Html.ActionLink("Back to Home", "Index", "Home")</p>
+<p>@Html.ActionLink("Back to Stylists","Index")</p>
 
 @* details  of stylist *@
 <div class="container">
   <div class="row">
-    <div class="col-8">@ViewBag.stylist.Name</div>
+    <div class="col"><h2>@ViewBag.stylist.Name</h2></div>
     <div class="col-4">@ViewBag.stylist.Notes</div>
   </div>
 </div>
-
-@* list of clients *@
 <p>@Html.ActionLink("Add new Client", "Create", "Client", new {id = ViewBag.stylist.StylistId})</p>
+@* list of clients *@
 <h2>List of Client</h2>
 @if (ViewBag.clients.Count == 0)
 {

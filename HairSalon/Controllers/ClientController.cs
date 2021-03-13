@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using HairSalon.Models;
 using System.Linq;
-using System;
+using System.Collections.Generic;
 
 namespace HairSalon.Controllers
 {
@@ -13,6 +13,18 @@ namespace HairSalon.Controllers
     public ClientController(SalonContext db)
     {
       _db = db;
+    }
+    public ActionResult Index()
+    {
+      List<Client> clients = _db.Clients.ToList();
+      Dictionary<int,string> stylistNames = new Dictionary<int,string>();
+      foreach (Stylist stylist in _db.Stylists.ToList())
+      {
+        stylistNames.Add(stylist.StylistId,stylist.Name);
+      }
+
+      ViewBag.Stylists = stylistNames;
+      return View(clients);
     }
     public ActionResult Create(int id)
     {
@@ -29,6 +41,11 @@ namespace HairSalon.Controllers
       _db.Entry(entry).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Index","Stylist");
+    }
+    public ActionResult Details(int Id)
+    {
+      Client thisclient = _db.Clients.FirstOrDefault(client => client.ClientId == Id);
+      return View(thisclient);
     }
   }
 }
