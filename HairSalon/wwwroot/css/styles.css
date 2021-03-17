@@ -1,0 +1,38 @@
+h1 {
+  text-align: center;
+}
+
+.black>a {
+  color: black !important;
+}
+
+.btn-center {
+  margin-left: auto;
+  margin-right: auto;
+  display:flex;
+  flex-direction:column;
+}
+
+.PageAction {
+  position: fixed;
+  top:1vh;
+  left:1vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.PageAction>* {
+  margin-left:10px;
+}
+
+body {
+  margin-left:5vw;
+  margin-right: 5vw;
+  width:90vw;
+}
+
+#footer {
+  position: absolute;
+  bottom:0;
+}
