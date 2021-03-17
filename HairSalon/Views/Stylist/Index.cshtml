@@ -19,20 +19,22 @@
     else
     {
       <div class="row TableHeader">
-        <div class="col">View</div>
+        <div class="col-1"></div>
         <div class="col">Name</div>
         <div class="col">Clients</div>
         <div class="col">Date of Hire</div>
+        <div class="col-1">Delete</div>
       </div>
     }
 
     @foreach (Stylist stylist in Model)
     {
       <div class="row TableEntry">
-        <div class="col">@Html.ActionLink("View", "Details", new { id = stylist.StylistId })</div>
+        <div class="col-1 TableButton">@Html.ActionLink("View", "Details", new { id = stylist.StylistId })</div>
         <div class="col">@stylist.Name</div>
         <div class="col">@stylist.CustomerCount</div>
         <div class="col">@stylist.StartDate</div>
+        <div class="col-1">@Html.ActionLink("Delete","Delete", new { id = stylist.StylistId })</div>
       </div>
     }
     <div class="row TableFooter"></div>
