@@ -6,8 +6,10 @@
 
 <h1>Details of @ViewBag.stylist.Name</h1>
 
-<p>@Html.ActionLink("Back to Home", "Index", "Home")</p>
-<p>@Html.ActionLink("Back to Stylists","Index")</p>
+<div class="PageAction">
+  <p>@Html.ActionLink("Back to Stylists","Index")</p>
+  <p>@Html.ActionLink("Add new Client", "Create", "Client", new {id = ViewBag.stylist.StylistId})</p>
+</div>
 
 @* details  of stylist *@
 <div class="container">
@@ -16,7 +18,7 @@
     <div class="col-4">@ViewBag.stylist.Notes</div>
   </div>
 </div>
-<p>@Html.ActionLink("Add new Client", "Create", "Client", new {id = ViewBag.stylist.StylistId})</p>
+
 @* list of clients *@
 <h2>List of Client</h2>
 @if (ViewBag.clients.Count == 0)

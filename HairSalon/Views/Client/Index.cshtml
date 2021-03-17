@@ -4,17 +4,36 @@
 @using HairSalon.Models;
 
 
-<h1>Hair Salon</h1>
-<p>@Html.ActionLink("Back to Home", "Index", "Home")</p>
+<h1>Clients</h1>
+<div class="PageAction">
+  <p class="btn btn-info black">@Html.ActionLink("Back to Home", "Index", "Home")</p>
+  <p class="btn btn-info black">@Html.ActionLink("Add new Client", "Create", "Client")</p>
+</div>
 
-@if (@Model.Count == 0)
-{
-  <h3>No Clients currently registered</h3>
-}
+<div class="TableContainer">
+  <div class="container">
+    @if (@Model.Count == 0)
+    {
+      <h3>No Clients currently registered</h3>
+    }
+    else
+    {
+      <div class="row TableHeader">
+        <div class="col-1"></div>
+        <div class="col">Name</div>
+        <div class="col">Assigned Stylist</div>
+        <div class="col-1">Delete</div>
+      </div>
+    }
 
-<ul>
-  @foreach (Client client in Model)
-  {
-    <li>@Html.ActionLink("View", "Details", new { id = client.StylistId }) | @client.Name | @ViewBag.Stylists[client.StylistId]</li>
-  }
-</ul>
+    @foreach (Client client in Model)
+    {
+      <div class="row TableEntry">
+      <div class="col-1 TableButton BlueBtn">@Html.ActionLink("View", "Details", new { id = client.StylistId })</div>
+      <div class="col">@client.Name</div>
+      <div class="col">@ViewBag.Stylists[client.StylistId]</div>
+      <div class="col-1 TableButton RedBtn">@Html.ActionLink("Delete","Delete", new { id = client.ClientId })</div>
+      </div>
+    }
+  </div>
+</div>
