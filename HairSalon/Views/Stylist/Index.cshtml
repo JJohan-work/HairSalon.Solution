@@ -10,14 +10,31 @@
   <p class="btn btn-info black">@Html.ActionLink("Add Stylist", "Create")</p>
 </div>
 
-@if (@Model.Count == 0)
-{
-  <h3>No Stylists currently registered</h3>
-}
+<div class="TableContainer">
+  <div class="container">
+    @if (@Model.Count == 0)
+    {
+      <h3>No Stylists currently registered</h3>
+    }
+    else
+    {
+      <div class="row TableHeader">
+        <div class="col">View</div>
+        <div class="col">Name</div>
+        <div class="col">Clients</div>
+        <div class="col">Date of Hire</div>
+      </div>
+    }
 
-<ul>
-  @foreach (Stylist stylist in Model)
-  {
-    <li>@Html.ActionLink("View", "Details", new { id = stylist.StylistId })  |  @stylist.Name  |  @stylist.CustomerCount  |  @stylist.StartDate</li>
-  }
-</ul>
+    @foreach (Stylist stylist in Model)
+    {
+      <div class="row TableEntry">
+        <div class="col">@Html.ActionLink("View", "Details", new { id = stylist.StylistId })</div>
+        <div class="col">@stylist.Name</div>
+        <div class="col">@stylist.CustomerCount</div>
+        <div class="col">@stylist.StartDate</div>
+      </div>
+    }
+    <div class="row TableFooter"></div>
+  </div>
+</div>

@@ -26,6 +26,30 @@ h1 {
   margin-left:10px;
 }
 
+.TableContainer {
+
+}
+
+.TableHeader {
+  border: 2px solid rgb(113, 160, 255);
+  border-radius: 10px 10px 0px 0px;
+  background-color: rgb(152, 186, 248);
+}
+
+.TableEntry {
+  border: 2px solid rgb(113, 160, 255);
+  background-color: rgb(211, 226, 255);
+  margin-top: 5px;
+}
+
+.TableFooter {
+  margin-top: 5px;
+  border: 2px solid rgb(113, 160, 255);
+  border-radius: 0px 0px 10px 10px;
+  background-color: rgb(152, 186, 248);
+  height:28px;
+}
+
 body {
   margin-left:5vw;
   margin-right: 5vw;
