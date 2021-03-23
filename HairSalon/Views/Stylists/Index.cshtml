@@ -29,11 +29,11 @@
     @foreach (Stylist stylist in Model)
     {
       <div class="row TableEntry">
-        <div class="col-1 TableButton BlueBtn">@Html.ActionLink("View", "Details", new { id = stylist.StylistId })</div>
+        <div class="col-1 TableButton BlueBtn black BtnSpacer">@Html.ActionLink("View", "Details", new { id = stylist.StylistId })</div>
         <div class="col-4">@stylist.Name</div>
         <div class="col-2">@stylist.CustomerCount</div>
         <div class="col">@stylist.StartDate</div>
-        <div class="col-2"><p class="TableButton RedBtn black">@Html.ActionLink("Delete","Delete", new { id = stylist.StylistId })</p></div>
+        <div class="col-2"><p class="TableButton RedBtn black BtnSpacer">@Html.ActionLink("Delete","Delete", new { id = stylist.StylistId })</p></div>
       </div>
     }
     <div class="row TableFooter"></div>

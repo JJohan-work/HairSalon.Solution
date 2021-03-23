@@ -1,0 +1,12 @@
+@{
+  Layout = "_Layout";
+}
+
+@model HairSalon.Models.Stylist
+<button class="btn btn-info black">@Html.ActionLink("Cancel", "Index", new {id = Model.StylistId})</button>
+<h2>Are you sure you want to remove @Model.Name ?</h2>
+
+@using (Html.BeginForm())
+{
+  <input type="submit" value="Delete" class="btn btn-danger btn-center"/>
+}

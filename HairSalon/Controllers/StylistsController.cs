@@ -7,10 +7,10 @@ using System;
 
 namespace HairSalon.Controllers
 {
-  public class StylistController : Controller
+  public class StylistsController : Controller
   {
     private readonly SalonContext _db;
-    public StylistController(SalonContext db)
+    public StylistsController(SalonContext db)
     {
       _db = db;
     }

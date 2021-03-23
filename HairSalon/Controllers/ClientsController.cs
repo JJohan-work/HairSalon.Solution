@@ -7,10 +7,10 @@ using System.Collections.Generic;
 
 namespace HairSalon.Controllers
 {
-  public class ClientController : Controller
+  public class ClientsController : Controller
   {
     private readonly SalonContext _db;
-    public ClientController(SalonContext db)
+    public ClientsController(SalonContext db)
     {
       _db = db;
     }
@@ -44,7 +44,7 @@ namespace HairSalon.Controllers
         _db.Entry(entry).State = EntityState.Modified;
       }
       _db.SaveChanges();
-      return RedirectToAction("Index","Client");
+      return RedirectToAction("Index");
     }
     public ActionResult Delete(int id)
     {
@@ -67,11 +67,6 @@ namespace HairSalon.Controllers
     }
     public ActionResult Edit(int id)
     {
-      // Dictionary<int,string> stylistNames = new Dictionary<int,string>();
-      // foreach (Stylist stylist in _db.Stylists.ToList())
-      // {
-      //   stylistNames.Add(stylist.StylistId,stylist.Name);
-      // }
       Client client = _db.Clients.FirstOrDefault(client => client.ClientId == id);
       if (client.StylistId != 0)
       {

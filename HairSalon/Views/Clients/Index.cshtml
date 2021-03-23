@@ -29,7 +29,7 @@
     {
       <div class="row TableEntry">
       <div class="col-1">
-        <p class="BlueBtn TableButton black">@Html.ActionLink("Edit","Edit","Client", new { id = client.ClientId})</p>
+        <p class="BlueBtn TableButton black BtnSpacer">@Html.ActionLink("Edit","Edit","Clients", new { id = client.ClientId})</p>
       </div>
       <div class="col">@client.Name</div>
       <div class="col">
@@ -42,7 +42,7 @@
           <p>Not Assigned</p>
         }
       </div>
-      <div class="col-2"><p class = "TableButton RedBtn black">@Html.ActionLink("Delete","Delete","Client", new { id = client.ClientId})</p></div>
+      <div class="col-2"><p class = "TableButton RedBtn black BtnSpacer">@Html.ActionLink("Delete","Delete","Clients", new { id = client.ClientId})</p></div>
       </div>
     }
     <div class="row TableFooter"></div>
