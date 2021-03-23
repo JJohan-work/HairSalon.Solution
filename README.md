@@ -12,7 +12,8 @@
 * _.Net v5.0_
 * _ASP.Net Core_
 * _MYSQL_
-* _MYSQL WORKSHOP_
+* _MYSQL WorkBench_
+* _Entity Framework Core_
 * _REPL_
 * _Git and Github_
 
