@@ -43,5 +43,24 @@ namespace HairSalon.Controllers
       ViewBag.clients = _db.Clients.Where(client => client.StylistId == id).ToList();
       return View();
     }
+
+    public ActionResult Delete(int id)
+    {
+      return View(_db.Stylists.FirstOrDefault(stylist => stylist.StylistId == id));
+    }
+
+    [HttpPost, ActionName("Delete")]
+    public ActionResult DeleteConfirmed(int id)
+    {
+      _db.Stylists.Remove(_db.Stylists.FirstOrDefault(stylist => stylist.StylistId == id));
+      List<Client> Clients = _db.Clients.Where(client => client.StylistId == id).ToList();
+      foreach(Client client in Clients)
+      {
+        client.StylistId = 0;
+        _db.Entry(client).State = EntityState.Modified;
+      }
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }

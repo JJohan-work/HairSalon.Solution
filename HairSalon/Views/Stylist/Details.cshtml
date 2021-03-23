@@ -7,30 +7,63 @@
 <h1>Details of @ViewBag.stylist.Name</h1>
 
 <div class="PageAction">
-  <p>@Html.ActionLink("Back to Stylists","Index")</p>
-  <p>@Html.ActionLink("Add new Client", "Create", "Client", new {id = ViewBag.stylist.StylistId})</p>
+  <p class="btn btn-info black">@Html.ActionLink("Back to Stylists","Index")</p>
 </div>
 
 @* details  of stylist *@
 <div class="container">
+  <div class="row"> </div>
   <div class="row">
-    <div class="col"><h2>@ViewBag.stylist.Name</h2></div>
-    <div class="col-4">@ViewBag.stylist.Notes</div>
+    <div class="col">
+      <div class="container">
+        <div class="row TableHeader">
+          <div class="col"><b>List of Clients</b></div>
+        </div>
+        @if (ViewBag.clients.Count == 0)
+        {
+          <div class="row">
+            <div class="col TableEntry">No Clients currently registered</div>
+          </div>
+        }
+        else
+        {
+          @foreach (Client client in ViewBag.clients)
+          {
+            <div class="row">
+              <div class="col TableEntry">@client.Name</div>
+            </div>
+          }
+        }
+        <div class="row">
+          <div class="col TableFooter"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="container">
+              <div class="row">
+                <div class="col TableHeader">Stylist Name</div>
+              </div>
+              <div class="row TableEntry">@ViewBag.stylist.Name</div>
+              <div class="row TableFooter"></div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="container">
+              <div class="row">
+                <div class="col TableHeader">Notes</div>
+              </div>
+              <div class="row TableEntry">@ViewBag.stylist.Notes</div>
+              <div class="row TableFooter"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
 @* list of clients *@
-<h2>List of Client</h2>
-@if (ViewBag.clients.Count == 0)
-{
-  <h2>No Clients currently registered</h2>
-}
-else
-{
-  <ol>
-  @foreach (Client client in ViewBag.clients)
-  {
-    <li>@client.Name</li>
-  }
-  </ol>
-}

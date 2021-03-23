@@ -6,8 +6,7 @@
 
 <h1>Clients</h1>
 <div class="PageAction">
-  <p class="btn btn-info black">@Html.ActionLink("Back to Home", "Index", "Home")</p>
-  <p class="btn btn-info black">@Html.ActionLink("Add new Client", "Create", "Client")</p>
+  <p class="btn btn-info black">@Html.ActionLink("Add New Client", "Create")</p>
 </div>
 
 <div class="TableContainer">
@@ -22,18 +21,30 @@
         <div class="col-1"></div>
         <div class="col">Name</div>
         <div class="col">Assigned Stylist</div>
-        <div class="col-1">Delete</div>
+        <div class="col-2">Delete</div>
       </div>
     }
 
     @foreach (Client client in Model)
     {
       <div class="row TableEntry">
-      <div class="col-1 TableButton BlueBtn">@Html.ActionLink("View", "Details", new { id = client.StylistId })</div>
+      <div class="col-1">
+        <p class="BlueBtn TableButton black">@Html.ActionLink("Edit","Edit","Client", new { id = client.ClientId})</p>
+      </div>
       <div class="col">@client.Name</div>
-      <div class="col">@ViewBag.Stylists[client.StylistId]</div>
-      <div class="col-1 TableButton RedBtn">@Html.ActionLink("Delete","Delete", new { id = client.ClientId })</div>
+      <div class="col">
+        @if (client.StylistId != 0)
+        {
+          @ViewBag.Stylists[client.StylistId];
+        }
+        else
+        {
+          <p>Not Assigned</p>
+        }
+      </div>
+      <div class="col-2"><p class = "TableButton RedBtn black">@Html.ActionLink("Delete","Delete","Client", new { id = client.ClientId})</p></div>
       </div>
     }
+    <div class="row TableFooter"></div>
   </div>
 </div>
